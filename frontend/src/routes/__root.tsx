@@ -7,6 +7,7 @@ import {
 
 import appCss from '../styles.css?url'
 import { Toaster } from '#/components/ui/sonner'
+import { NotFound } from '#/components/not-found'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { TooltipProvider } from '#/components/ui/tooltip'
 import { configureSDK } from '@durianpay/sdk'
@@ -51,7 +52,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
   }),
   component: RootComponent,
   shellComponent: RootDocument,
-  notFoundComponent: () => <div>Page not found</div>,
+  notFoundComponent: NotFound,
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
