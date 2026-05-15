@@ -13,7 +13,10 @@ export interface SDKConfig {
  * Call this once at app startup before any API calls.
  */
 export function configureSDK(config: SDKConfig) {
-  axiosInstance = Axios.create({ baseURL: config.baseURL });
+  axiosInstance = Axios.create({
+    baseURL: config.baseURL,
+    withCredentials: true,
+  });
 
   if (config.getToken) {
     const getToken = config.getToken;

@@ -52,6 +52,7 @@ export function SidebarDashboard({ user }: SidebarDashboardProps) {
   const { mutateAsync: logout } = usePostDashboardV1AuthLogout({
     mutation: {
       onSuccess: () => {
+        document.cookie = 'token=; path=/; max-age=0'
         queryClient.clear()
         navigate({ to: '/login' })
       },

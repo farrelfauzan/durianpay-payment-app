@@ -22,7 +22,10 @@ export function LoginForm() {
   const queryClient = useQueryClient()
   const loginMutation = usePostDashboardV1AuthLogin({
     mutation: {
-      onSuccess: () => {
+      onSuccess: (data) => {
+        if (data.token) {
+          document.cookie = `token=${data.token}; path=/; max-age=86400; SameSite=Lax`
+        }
         queryClient.invalidateQueries({ queryKey: ['/dashboard/v1/auth/me'] })
         navigate({
           to: '/dashboard',
