@@ -51,6 +51,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
   }),
   component: RootComponent,
   shellComponent: RootDocument,
+  notFoundComponent: () => <div>Page not found</div>,
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
