@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "durianpay-dashboard",
+  "packageManager": "pnpm@10.26.2",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "lightningcss"
+    ]
+  },
+  "scripts": {
+    "dev": "pnpm --filter frontend dev",
+    "build": "pnpm --filter frontend build",
+    "test": "pnpm test:backend && pnpm test:frontend",
+    "test:backend": "cd backend && go test ./...",
+    "test:frontend": "pnpm --filter frontend test",
+    "lint": "pnpm --filter frontend lint"
+  }
+}
