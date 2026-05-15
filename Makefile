@@ -5,10 +5,12 @@ help: ## Show this help
 
 # ─── Setup ───────────────────────────────────────────────────────────────────
 
-setup: setup-backend setup-frontend ## Install all dependencies
+setup: setup-env setup-backend setup-frontend ## Install all dependencies
+
+setup-env: ## Copy .env.example to .env if not present
+	@cp -n .env.example .env || true
 
 setup-backend: ## Install backend dependencies
-	cd backend && cp -n env.sample .env || true
 	cd backend && make dep
 
 setup-frontend: ## Install frontend dependencies

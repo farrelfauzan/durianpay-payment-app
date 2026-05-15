@@ -22,7 +22,8 @@ import (
 )
 
 func main() {
-	_ = godotenv.Load()
+	// Load root .env (monorepo root), fallback to local .env
+	_ = godotenv.Load("../.env", ".env")
 
 	db, err := sql.Open("sqlite3", "dashboard.db?_foreign_keys=1")
 	if err != nil {

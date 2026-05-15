@@ -25,15 +25,19 @@ Or with Docker:
 docker compose up --build
 ```
 
-### Backend config
+### Environment config
 
-The setup creates `backend/.env` from the sample. Generate a proper JWT secret with `cd backend && make gen-secret`.
+The setup copies `.env.example` to `.env` at the monorepo root. This single file is used by both backend and frontend. Generate a proper JWT secret with `cd backend && make gen-secret`.
 
 ```env
+# Backend
 HTTP_ADDR=:8080
 OPENAPIYAML_LOCATION=../openapi.yaml
 JWT_SECRET=your-very-secret
 JWT_EXPIRED=24h
+
+# Frontend
+VITE_API_BASE_URL=http://localhost:8080
 ```
 
 ## Sample Data
